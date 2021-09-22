@@ -1,0 +1,154 @@
+.logininputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emailinput {
+  width: 30vw;
+  height: 5vh;
+  margin-bottom: 10px;
+  border: solid 2px indigo;
+}
+
+.passwordinput {
+  width: 30vw;
+  height: 5vh;
+  border: solid 2px indigo;
+}
+
+.card {
+  justify-content: center;
+  background-color: lavender;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.img {
+  width: 7em;
+  height: 7em;
+  float: left;
+  display: inline-block;
+  margin-right: 3em;
+}
+
+.text {
+  text-align: center;
+}
+
+.navcustomstyling {
+  position: static;
+  top: 0px;
+}
+
+.UserInfo {
+  position: absolute;
+  bottom: 8px;
+  left: 80px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+#button1 {
+  margin: 3em;
+}
+
+.AnsweredText {
+  color: lawngreen;
+}
+.unasweredText {
+  color: lightcoral;
+}
+
+.card {
+  width: 40em;
+}
+
+.Card {
+  width: 40em;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 40%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.homeText {
+  text-decoration: none;
+  margin: auto;
+  padding: 15px;
+  color: #c1ee0e;
+}
+
+.newQuestion {
+  width: 40em;
+  margin-top: 3em;
+}
+
+.cardStyle {
+  width: 40em;
+  display: grid;
+  justify-content: center;
+  border-radius: 60%;
+}
+
+ul {
+  min-width: 696px;
+  list-style: none;
+  margin: 0 auto;
+  display: inline;
+}
+
+li {
+  display: inline-flex;
+  margin-left: 10em;
+}
+
+.list {
+  display: -ms-inline-grid;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  background-color: lightskyblue;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
+}
+
+
+.homeText:hover {
+  color: rgb(32, 178, 142);
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  margin: auto;
+}
+.pollbox {
+  margin-left: 30%;
+}
+.animate__animated {
+  height: 100%;
+}
+.animate__bounce {
+  height: 100%;
+}
