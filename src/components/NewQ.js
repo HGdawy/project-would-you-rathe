@@ -4,7 +4,7 @@ import "./components.css";
 import { connect } from "react-redux";
 import { AddQ } from "../actions/shared";
 import { Redirect } from "react-router-dom";
-import NavBar from "./NavBar";
+
 
 
 class NewQ extends Component {
@@ -43,7 +43,7 @@ class NewQ extends Component {
     }
     return (
       <div>
-        <NavBar/>;
+        
         <div className="container">
           <Card className="cardStyle">
             <Form className="newQuestion">

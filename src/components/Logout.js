@@ -14,7 +14,9 @@ class Logout extends Component {
           <Nav>
             <Dropdown>
               <Dropdown.Toggle variant="dark">
-                hello, {username.name}
+                {username.name 
+                ?`hellow ${username.name}`
+                :`You are not logedin`}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Link
@@ -26,7 +28,10 @@ class Logout extends Component {
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
-            <img alt="Avatar" id="image" src={username.avatarURL} />
+            {username.name 
+                ? <img alt="Avatar" id="image" src={username.avatarURL} />
+                :null}
+            
           </Nav>
         </Navbar>
       </div>

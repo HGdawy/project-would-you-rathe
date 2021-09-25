@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
-import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { handleQs, saveQ } from "../actions/shared";
@@ -13,6 +12,10 @@ class Que extends Component {
     answer: "",
     votes: "",
     percentage: 0,
+    OptionOnePercentage:0,
+    OptionTwoPercentage:0,
+    optionOneVotesNum:0,
+    optionTwoVotesNum:0,
   };
 
   handleSelect(e) {
@@ -41,17 +44,29 @@ class Que extends Component {
       let userAnswer = "";
       let votes = "";
       let percentage = 0;
-
+      let OptionOnePercentage = 0;
+      let OptionTwoPercentage = 0;
+      let optionOneVotesNum = 0 ;
+      let optionTwoVotesNum = 0 ;
       //comparing the id of the username object with the ids of question answers and extracting the match
       Object.entries(username.answers).map((answer) => {
         if (question[answer[1]].votes.includes(username.id)) {
           userAnswer = question[answer[1]].text;
           votes = question[answer[1]].votes.length;
           percentage = (votes / Object.keys(users).length) * 100;
+          OptionOnePercentage = (question.optionOne.votes.length / votes) * 100 ;
+          OptionTwoPercentage = (question.optionTwo.votes.length / votes) * 100 ;
+          optionOneVotesNum = question.optionOne.votes.length
+          optionTwoVotesNum = question.optionTwo.votes.length
           this.setState({ answer: userAnswer });
           this.setState({ votes: votes });
           this.setState({ percentage: percentage });
+          this.setState({ OptionOnePercentage: OptionOnePercentage });
+          this.setState({ OptionTwoPercentage: OptionTwoPercentage });
+          this.setState({ optionTwoVotesNum: optionTwoVotesNum });
+          this.setState({ optionOneVotesNum: optionOneVotesNum });
         }
+        console.log(question)
         return question;
       });
     }
@@ -114,39 +129,61 @@ class Que extends Component {
 
     return (
       <div>
-        <NavBar/>
+        
         {category === "answered" ? (
           <div>
             <div className="card">
               <Card>
                 <Card.Header>Answered</Card.Header>
                 <Card.Body>
-                  <Card.Text>
+                  
                     {Object.entries(question).map((answer) => {
+                      
                       if ( answer[0] === "optionOne" || answer[0] === "optionTwo") {
                         if (answer[1].text === this.state.answer) {
                           return (
-                            <span style={{ color: "green" }} key={answer.toString(44)}> 
+                            <>
+                            <Card.Text style={{ color: "green" }} key={answer.toString(44)}> 
                               Answered: {answer[1].text}
-                            </span>
+                            </Card.Text>
+                            <Card.Text>
+                            percentage of people who voted for {answer[1].text} :  
+                              {Math.round(this.state.OptionOnePercentage)}%
+                            </Card.Text>
+                            <Card.Text>
+                            Num of people who voted for {answer[1].text} :  
+                              {this.state.optionOneVotesNum}
+                            </Card.Text>
+                            </>
                           );
                           
                         } 
-                        return <span key={answer.toString(33)}> Not Answered: {answer[1].text}</span>
+                        return (
+                        <>
+                        <Card.Text key={answer.toString(33)}> Not Answered: {answer[1].text}</Card.Text>
+                        <Card.Text>
+                           percentage of people who voted for {answer[1].text} :  
+                           {Math.round(this.state.OptionTwoPercentage)}%
+                        </Card.Text>
+                        <Card.Text>
+                           Num of people who voted for {answer[1].text}  : 
+                           {this.state.optionTwoVotesNum}
+                        </Card.Text>
+                        </>
+                        )
                       }
                       return null
                     })}
-                  </Card.Text>
+                  
                   <Card.Text>
-                    Number of people who voted:
+                    Number of All people who voted:
                     {this.state.votes}
                   </Card.Text>
                   <Card.Text>
-                    percentage of people who voted:
+                    percentage of All people who voted:
                     {Math.round(this.state.percentage)}%
                   </Card.Text>
-                  <Card.Text></Card.Text>
-                </Card.Body>
+                  </Card.Body>
               </Card>
             </div>
           </div>

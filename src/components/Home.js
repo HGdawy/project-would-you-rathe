@@ -4,7 +4,6 @@ import Ans from "./Ans";
 import "./components.css";
 import { Button, Nav, Navbar, NavLink } from "react-bootstrap";
 import { connect } from "react-redux";
-import NavBar from "./NavBar";
 import { handleQs } from "../actions/shared";
 import { Redirect } from "react-router-dom";
 
@@ -77,7 +76,6 @@ class Home extends Component {
     unaswerdquestion.sort().reverse();
     return (
       <div>
-        <NavBar />
         <div className="pollbox">
           <Navbar>
             <Nav className="list">

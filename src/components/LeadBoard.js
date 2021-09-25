@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import "./components.css";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import NavBar from "./NavBar";
+
 
 class LeadBoard extends Component {
   render() {
@@ -72,7 +72,7 @@ class LeadBoard extends Component {
 
     return (
       <div>
-        <NavBar/>
+        
         <div>
 
           {arrsort.map((card) => {

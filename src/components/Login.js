@@ -4,7 +4,7 @@ import Home from "./Home";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleSelectUser } from "../actions/users";
-import NavBar from "./NavBar";
+
 
 
 class Login extends Component {
@@ -27,7 +27,7 @@ class Login extends Component {
 
     return (
       <div>
-        <NavBar />
+        
         <Card className="Card">
           <Form style={{ textAlign: "center" }} className="form">
             <Form.Text className="text-muted">

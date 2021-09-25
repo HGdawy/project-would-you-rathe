@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import NavBar from "./NavBar";
+
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -18,9 +18,7 @@ class NotFound extends Component {
     }
     return (
       <div>
-        <NavBar/>
-
-        <h1>404 - Not Found!</h1>
+          <h1>404 - Not Found!</h1>
       </div>
     );
   }

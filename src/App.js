@@ -9,10 +9,11 @@ import { connect } from "react-redux";
 import { handleInitialData } from "../src/actions/shared";
 import { Route, Switch } from "react-router-dom";
 import Que from "./components/Que";
+import NavBar from "./components/NavBar" 
 
 class App extends Component {
   state = {
-    leaderboard: false,
+    leaderboard: true,
     question: false,
   };
   componentDidMount() {
@@ -29,18 +30,22 @@ class App extends Component {
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
         </div>
+
+        <NavBar/>
+
         <Switch>
-          <Route path="/questions/:question_id" component={Que}></Route>
+          <Route exact path="/questions/:question_id" component={Que}></Route>
           <Route path="/home" component={Home} />
           <Route path="/add" component={NewQ} />
           <Route path="/leaderboard" component={LeadBoard} />
           <Route exact path="/" component={Login} />
           <Route exact path="/error" component={NotFound} />
           <Route path="*">
-            <NotFound></NotFound>
+            <NotFound/>
           </Route>
         </Switch>
-        {this.state.leaderboard ? (
+       
+        {!this.state.leaderboard ? (
           <>
             <div>
               <Login />
